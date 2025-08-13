@@ -1,0 +1,214 @@
+/* Import tokens */
+@import '../tokens.css';
+
+/* Wrapper that mimics the "Double-view" frame (style_79) */
+.double-calendar {
+  width: var(--double-width);
+  height: var(--double-height);
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background: var(--color-bg-tile);
+  border-radius: var(--radius-16);
+  box-shadow: var(--shadow-0);
+  overflow: hidden; /* ensure rounded corners */
+}
+
+/* Vertical divider (style_23) */
+.double-calendar .divider {
+  width: 1px;
+  background: var(--color-divider);
+  height: 100%;
+}
+
+/* Single calendar (style_7 container in figma) */
+.calendar {
+  width: var(--calendar-width);
+  height: var(--calendar-height);
+  padding: var(--space-24);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  box-sizing: border-box;
+}
+
+/* Header (white surface + elements), 44px height */
+.cal-header {
+  height: var(--header-height);
+  display: grid;
+  grid-template-columns: 44px 1fr 44px; /* sides for nav, center for month/year */
+  align-items: center;
+  background: var(--color-bg-surface);
+  border-radius: var(--radius-6);
+  padding: 0 8px;
+  column-gap: 8px;
+}
+
+.cal-header .header-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Circle nav buttons (style_80) */
+.nav-btn {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: var(--radius-80);
+  background: var(--color-white);
+  color: var(--color-text-body);
+  box-shadow: var(--shadow-1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.nav-btn:hover {
+  filter: brightness(0.97);
+}
+.nav-btn:active {
+  transform: translateY(0.5px);
+}
+
+/* Month and Year "pills" (style_81) */
+.cal-header .header-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.header-pill {
+  height: 24px;
+  min-width: 64px;
+  padding: 0 10px;
+  background: var(--color-white);
+  border-radius: var(--radius-6);
+  box-shadow: var(--shadow-1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.month-text {
+  font-family: var(--font-family-lexend);
+  font-size: var(--font-size-24);
+  font-weight: var(--font-weight-700);
+  color: var(--color-text-header);
+  line-height: 24px;
+}
+.year-text {
+  font-family: var(--font-family-lexend);
+  font-size: var(--font-size-24);
+  font-weight: var(--font-weight-700);
+  color: var(--color-text-header);
+  line-height: 24px;
+}
+.caret {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+}
+
+/* Day-of-week row (7 columns x 54px) */
+.dow-row {
+  height: var(--dow-height);
+  display: grid;
+  grid-template-columns: repeat(7, var(--cell-width));
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+.dow-cell {
+  width: var(--cell-width);
+  height: var(--dow-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-4);
+}
+.dow-text {
+  font-family: var(--font-family-lexend);
+  font-size: var(--font-size-18);
+  font-weight: var(--font-weight-500);
+  color: var(--color-text-body);
+  line-height: 18px;
+}
+
+/* Weeks container (6 rows) */
+.weeks {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.week {
+  display: grid;
+  grid-template-columns: repeat(7, var(--cell-width));
+  align-items: center;
+  justify-content: center;
+  height: var(--cell-height);
+}
+
+/* Day cells */
+.day-cell {
+  width: var(--cell-width);
+  height: var(--cell-height);
+  border: var(--border-subtle); /* style_82 */
+  background: var(--color-white);
+  border-radius: var(--radius-6);
+  box-shadow: var(--shadow-1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.day-cell.is-disabled {
+  border: none;              /* style_11 -> radius only */
+  box-shadow: none;
+  background: transparent;
+  cursor: not-allowed;
+}
+
+.day-cell.is-regular:hover:not(.is-today-selected) {
+  background: var(--color-hover-bg);      /* style_83 */
+  border: var(--border-strong);
+}
+
+/* Today selected (style_14) */
+.day-cell.is-today-selected {
+  background: var(--color-primary);
+  border: var(--border-today);
+  color: var(--color-white);
+}
+
+/* Day text styles (typo_21 regular, typo_18 when selected, typo_22 disabled) */
+.day-text {
+  font-family: var(--font-family-lexend);
+  font-size: var(--font-size-18);
+  font-weight: var(--font-weight-500);
+  line-height: 18px;
+  color: var(--color-text-body);
+}
+
+.day-cell.is-disabled .day-text {
+  color: var(--color-text-disabled);
+}
+
+.day-cell.is-today-selected .day-text {
+  color: var(--color-white);
+}
+
+/* Responsiveness: allow shrinking down while maintaining grid proportions */
+@media (max-width: 900px) {
+  .double-calendar {
+    transform: scale(0.9);
+    transform-origin: top center;
+  }
+}
+@media (max-width: 780px) {
+  .double-calendar {
+    transform: scale(0.8);
+  }
+}

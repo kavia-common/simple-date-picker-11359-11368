@@ -1,0 +1,47 @@
+:root {
+  /* Colors (from design_system_b2c-11359-5oRpKHjv0EgJNClsdUQnn0.json) */
+  --color-white: #ffffff;                /* color_ffffff */
+  --color-black: #000000;                /* color_000000 */
+  --color-bg-tile: #f5f5f5;              /* color_f5f5f5 (style_7, style_79) */
+  --color-divider: #e6e6e6;              /* color_e6e6e6 (style_23) */
+  --color-primary: #0047ff;              /* color_0047ff (primary blue) */
+  --color-text-header: #141414;          /* color_141414 (typo_20) */
+  --color-text-body: #1f1f1f;            /* color_1f1f1f (typo_21) */
+  --color-text-disabled: #001754;        /* color_001754 (typo_22) */
+  --color-hover-bg: #d8e3ff;             /* color_d8e3ff (style_83) */
+  --color-bg-surface: #ffffff;           /* style_2 surface */
+
+  /* Typography */
+  --font-family-lexend: Lexend, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+  --font-size-24: 24px;  /* typo_20 */
+  --font-size-18: 18px;  /* typo_21, typo_18, typo_23 */
+  --font-weight-700: 700;
+  --font-weight-500: 500;
+
+  /* Spacing and sizes (from Figma measures) */
+  --space-24: 24px; /* calendar horizontal padding */
+  --header-height: 44px;
+  --dow-height: 44px;
+  --cell-width: 54px;
+  --cell-height: 44px;
+  --week-width: 378px;  /* 7 * 54px */
+  --calendar-width: 426px; /* outer frame */
+  --calendar-height: 444px;
+  --double-width: 853px;  /* 2 * 426 + 1px divider */
+  --double-height: 444px;
+
+  /* Radius */
+  --radius-4: 4px;
+  --radius-6: 6px;       /* style_9, style_11, style_14, style_82, style_83 */
+  --radius-16: 16px;     /* style_79 */
+  --radius-80: 80px;     /* circular buttons style_80 */
+
+  /* Borders */
+  --border-subtle: 0.5px solid #e5e5e5; /* style_82 border */
+  --border-strong: 1px solid var(--color-primary); /* style_83 */
+  --border-today: 2px solid var(--color-white);    /* style_14 */
+
+  /* Shadows (approximate RGBA for #000e33) */
+  --shadow-0: 0 1px 2px rgba(0, 14, 51, 0.2);  /* style_79 */
+  --shadow-1: 0 1px 1px rgba(0, 14, 51, 0.2);  /* style_80/81/82 */
+}

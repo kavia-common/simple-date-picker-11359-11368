@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders double-view calendar with April visible', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  // Look for month header text "April"
+  const monthElement = screen.getByText(/April/i);
+  expect(monthElement).toBeInTheDocument();
 });
